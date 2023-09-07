@@ -12,12 +12,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ApiResponse {
 
-    private String name;
-    private String currentDay;
-    private String utcTime;
+    private String slack_name;
+    private String current_day;
+    private String utc_time;
     private String track;
-    private String githubFileUrl;
-    private String githubRepoUrl;
-    private int statusCode;
+    private String github_file_url;
+    private String github_repo_url;
+    private int status_code;
 
 }
