@@ -26,7 +26,7 @@ public class ApiController {
                 }
 
                 DayOfWeek currentDayOfTheWeek = LocalDateTime.now(ZoneId.of("UTC")).getDayOfWeek();
-                String current_day = currentDayOfTheWeek.toString();
+                String currentDay = currentDayOfTheWeek.name().substring(0, 1) + currentDayOfTheWeek.name().substring(1).toLowerCase();
 
                 LocalDateTime currentTime = LocalDateTime.now(ZoneId.of("UTC"));
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
