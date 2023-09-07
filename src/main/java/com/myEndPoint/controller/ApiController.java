@@ -19,24 +19,24 @@ import java.time.format.DateTimeFormatter;
 @RequestMapping("/api")
 public class ApiController {
         @GetMapping()
-        public ResponseEntity<ApiResponse> getData(@RequestParam String name, @RequestParam String track) {
+        public ResponseEntity<ApiResponse> getData(@RequestParam String slack_name, @RequestParam String track) {
             try {
-                if (name == null || name.isEmpty() || track == null || track.isEmpty()) {
+                if (slack_name == null || slack_name.isEmpty() || track == null || track.isEmpty()) {
                     throw new DataException("Name and track must be provided");
                 }
 
                 DayOfWeek currentDayOfTheWeek = LocalDateTime.now(ZoneId.of("UTC")).getDayOfWeek();
-                String currentDay = currentDayOfTheWeek.toString();
+                String current_day = currentDayOfTheWeek.toString();
 
                 LocalDateTime currentTime = LocalDateTime.now(ZoneId.of("UTC"));
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
-                String utcTime = formatter.format(currentTime);
+                String utc_time = formatter.format(currentTime);
 
-                String githubFileUrl = "https://github.com/BlackTechyGirl/ApiEndPoints/blob/main/src/main/java/com/myEndPoint/controller/ApiController.java";
-                String githubRepoUrl = "https://github.com/BlackTechyGirl/ApiEndPoints";
-                int statusCode = 200;
+                String github_file_url = "https://github.com/BlackTechyGirl/ApiEndPoints/blob/main/src/main/java/com/myEndPoint/controller/ApiController.java";
+                String github_repo_url = "https://github.com/BlackTechyGirl/ApiEndPoints";
+                int status_code = 200;
 
-                ApiResponse response = new ApiResponse(name, currentDay, utcTime, track, githubFileUrl, githubRepoUrl, statusCode);
+                ApiResponse response = new ApiResponse(slack_name, current_day, utc_time, track, github_file_url, github_repo_url, status_code);
 
                 return ResponseEntity.ok(response);
             } catch (DataException e) {
