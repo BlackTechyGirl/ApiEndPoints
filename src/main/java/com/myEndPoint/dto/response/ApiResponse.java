@@ -18,6 +18,6 @@ public class ApiResponse {
     private String track;
     private String githubFileUrl;
     private String githubRepoUrl;
-    private HttpStatus statusCode;
+    private int statusCode;
 
 }
